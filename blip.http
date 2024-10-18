@@ -1,0 +1,10 @@
+
+POST https://rafael-anacleto-gupe5.http.msging.net/commands HTTP/1.1
+Content-Type: application/json
+Authorization: Key YW5hY2xldG9ib3Q6TE5RUG9lYlFxWGdIcEJjTjljUGE=
+
+{
+  "method": "get",
+  "uri": "/contacts",
+  "id": "8b9d7aef-b8f9-42ec-9125-08841992ea50"
+}
