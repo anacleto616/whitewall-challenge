@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "commit": "cz"
+    "commit": "cz",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.6",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
