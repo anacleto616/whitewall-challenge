@@ -1,1 +1,24 @@
-<p>contact-list works!</p>
+<main class="min-h-screen bg-gray-900 text-white p-6">
+  <h1 class="text-3xl font-bold mb-8 text-blue-400">Contatos</h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (contact of contacts; track contact.identity) {
+    <div
+      class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 cursor-pointer transition"
+      [routerLink]="['/contacts', contact.identity]"
+    >
+      <div class="text-lg font-semibold text-blue-300 mb-4">
+        {{ contact.name }}
+      </div>
+      <div class="text-sm mb-2">
+        <span class="font-semibold text-blue-200">Grupo:</span>
+        {{ contact.group }}
+      </div>
+      <div class="text-sm mb-2">
+        <span class="font-semibold text-blue-200">Última mensagem:</span>
+        {{ contact.lastMessageDate | date : "dd/MM/yyyy HH:mm" }}
+      </div>
+    </div>
+    }
+  </div>
+</main>
