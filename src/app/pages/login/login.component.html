@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div
+  class="min-h-screen flex items-center justify-center bg-gray-900 text-white"
+>
+  <div class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h1 class="text-3xl font-bold text-center mb-6 text-blue-400">Login</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="space-y-6">
+      <div>
+        <input
+          id="apiKey"
+          formControlName="apiKey"
+          type="text"
+          placeholder="Insira a sua chave da API"
+          class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        @if (loginForm.get('apiKey')?.invalid &&
+        loginForm.get('apiKey')?.touched) {
+        <div class="text-red-500 text-sm mt-2">Chave da API obrigatória.</div>
+        }
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          Entrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

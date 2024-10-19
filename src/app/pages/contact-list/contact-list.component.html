@@ -5,7 +5,7 @@
     @for (contact of contacts; track contact.identity) {
     <div
       class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 cursor-pointer transition"
-      [routerLink]="['/contacts', contact.identity]"
+      [routerLink]="['/contact', contact.identity]"
     >
       <div class="text-lg font-semibold text-blue-300 mb-4">
         {{ contact.name }}
@@ -19,6 +19,8 @@
         {{ contact.lastMessageDate | date : "dd/MM/yyyy HH:mm" }}
       </div>
     </div>
+    } @empty {
+        <p class="text-gray-500 text-3xl">Não há contatos para essa chave de API no momento.</p>
     }
   </div>
 </main>
