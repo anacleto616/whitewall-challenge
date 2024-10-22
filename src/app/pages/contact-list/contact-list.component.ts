@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Contact } from '../../models/contact';
+import { AuthService } from '../../services/auth/auth.service';
 import { ContactService } from '../../services/contact/contact.service';
 
 @Component({
@@ -11,8 +12,9 @@ import { ContactService } from '../../services/contact/contact.service';
   templateUrl: './contact-list.component.html',
 })
 export class ContactListComponent implements OnInit {
-  router = inject(Router);
+  private router = inject(Router);
   contactService = inject(ContactService);
+  authService = inject(AuthService);
 
   contacts!: Contact[];
 
@@ -34,5 +36,9 @@ export class ContactListComponent implements OnInit {
         this.contacts = response.resource.items;
       });
     }
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

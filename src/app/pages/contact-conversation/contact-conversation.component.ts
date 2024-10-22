@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './contact-conversation.component.html',
-  styleUrl: './contact-conversation.component.css'
 })
 export class ContactConversationComponent {
-
+  
 }
