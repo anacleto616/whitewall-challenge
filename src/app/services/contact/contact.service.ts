@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
+import { ContactConversationResponse } from '../../models/contact-conversation-response';
 import { ContactsResponse } from '../../models/contacts-reponse';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class ContactService {
   private apiUrl = `${environment.apiUrl}`;
   private httpClient = inject(HttpClient);
 
-  index(apiKey: string): Observable<ContactsResponse> {
+  getContacts(apiKey: string): Observable<ContactsResponse> {
     const key = localStorage.getItem('apiKey');
 
     if (key) {
@@ -55,6 +56,24 @@ export class ContactService {
       {
         method: 'get',
         uri: '/contacts',
+        id: `${environment.apiId}`,
+      },
+      { headers: headers }
+    );
+  }
+
+  getConversation(id: string) {
+    const apiKey = localStorage.getItem('apiKey');
+
+    const apiKeyFormatted = apiKey?.split(' ')[1];
+
+    const headers = new HttpHeaders({ Authorization: `Key ${apiKeyFormatted}` });
+
+    return this.httpClient.post<ContactConversationResponse>(
+      this.apiUrl,
+      {
+        method: 'get',
+        uri: `/threads/${id}?refreshExpiredMedia=true`,
         id: `${environment.apiId}`,
       },
       { headers: headers }

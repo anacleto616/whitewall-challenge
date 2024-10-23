@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       const apiKey = this.loginForm.value.apiKey;
 
       if (apiKey) {
-        this.contactService.index(apiKey).subscribe({
+        this.contactService.getContacts(apiKey).subscribe({
           next: (response) => {
             if (response.status === 'success') {
               this.router.navigate(['']);

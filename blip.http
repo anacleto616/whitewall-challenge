@@ -8,3 +8,15 @@ Authorization: Key YW5hY2xldG9ib3Q6TE5RUG9lYlFxWGdIcEJjTjljUGE=
   "uri": "/contacts",
   "id": "8b9d7aef-b8f9-42ec-9125-08841992ea50"
 }
+
+###
+
+POST https://rafael-anacleto-gupe5.http.msging.net/commands HTTP/1.1
+Content-Type: application/json
+Authorization: Key b2lvaW9pOTpqbTY4b3hKMnhNaklmcldOQTM4bw==
+
+{
+  "method": "get",
+  "uri": "/threads/1444875c-edd7-4f33-9986-1646606455dd.oioioi9@0mn.io?refreshExpiredMedia=true",
+  "id": "{{$guid}}"
+}

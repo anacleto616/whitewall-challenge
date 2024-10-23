@@ -32,7 +32,7 @@ export class ContactListComponent implements OnInit {
     const apiKeyFormatted = apiKey?.split(' ')[1];
 
     if (apiKeyFormatted) {
-      this.contactService.index(apiKeyFormatted).subscribe((response) => {
+      this.contactService.getContacts(apiKeyFormatted).subscribe((response) => {
         this.contacts = response.resource.items;
       });
     }
